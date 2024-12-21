@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <link rel="stylesheet" href="tabStyle.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="tab_box">
+            <button class="tab_button">Tab 1</button>
+            <button class="tab_button">Tab 2</button>
+            <button class="tab_button">Tab 3</button>
+            <button class="tab_button">Tab 4</button>
+            <div class="line"></div>
+        </div>
+        <div class="tab_content_box">
+            <div class="content">
+                <h2>This is tab 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur delectus sed rem possimus consectetur sapiente reprehenderit perspiciatis, alias fugiat illum molestias nam dolores obcaecati cupiditate nulla odit, ut ipsum?</p>
+            </div>
+            <div class="content">
+                <h2>This is tab 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur delectus sed rem possimus consectetur sapiente reprehenderit perspiciatis, alias fugiat illum molestias nam dolores obcaecati cupiditate nulla odit, ut ipsum?</p>
+            </div>
+            <div class="content">
+                <h2>This is tab 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur delectus sed rem possimus consectetur sapiente reprehenderit perspiciatis, alias fugiat illum molestias nam dolores obcaecati cupiditate nulla odit, ut ipsum?</p>
+            </div>
+            <div class="content">
+                <h2>This is tab 4</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci pariatur delectus sed rem possimus consectetur sapiente reprehenderit perspiciatis, alias fugiat illum molestias nam dolores obcaecati cupiditate nulla odit, ut ipsum?</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab_button');
+        const allContent = document.querySelectorAll('.content');
+
+        tabs.forEach(
+            (tab , index) => {
+                tab.addEventListener('click', (e)=>{
+                    tabs.forEach(tab=>{tab.classList.remove('active')});
+                    tab.classList.add('active');
+                var line = document.querySelector('.line');
+                line.style.width = e.target.offsetWidth + "px" ;
+                line.style.left = e.target.offsetLeft + "px" ;
+
+                allContent.forEach(content=>{content.classList.remove('active')})
+                allContent[index].classList.add('active');
+
+                })
+          }
+        )
+
+    </script>
+</body>
+</html>
